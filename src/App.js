@@ -23,9 +23,16 @@ const App = () => {
     itemArray.fill("empty", 0, 9);
   };
 
-  // const reset = () => {
-  //   reloadGame();
-  // };
+  const timeout = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+  const reset = () => {
+    reloadGame();
+    toast("Game Reset Successfully");
+    timeout();
+  };
 
   const checkIsWinner = () => {
     //  checking  winner of the game
@@ -97,7 +104,7 @@ const App = () => {
   return (
     <div>
       <Container className="p-5">
-        <h1 className="text-center text-danger fw-bold display-3">
+        <h1 className="text-center title-text fw-bold display-3">
           Tic Tac Toe
         </h1>
         <ToastContainer position="bottom-right" />
@@ -105,18 +112,18 @@ const App = () => {
           <Col md={6} className="offset-md-3">
             {winMessage ? (
               <div className="mb-2 mt-2">
-                <h1 className="text-primary text-uppercase text-center">
+                <h3 className="text-primary text-uppercase text-center">
                   {winMessage}
-                </h1>
-                <Button color="success" block onClick={reloadGame}>
+                </h3>
+                <div className="text-center text-white" onClick={reloadGame}>
                   {" "}
                   Reload The Game
-                </Button>
+                </div>
               </div>
             ) : (
-              <h1 className="text-center text-warning">
+              <h3 className="text-center text-warning">
                 {isCheck ? "Cross" : "Circle"} Turns
-              </h1>
+              </h3>
             )}
             <div className="grid">
               {itemArray.map((item, index) => {
@@ -130,12 +137,13 @@ const App = () => {
               })}
             </div>
             <div className="text-center">
-              <Button className="btn btn-light my-4" onClick={reloadGame}>
+              <Button className="btn btn-light my-4" onClick={reset}>
                 Reset Game
               </Button>
             </div>
           </Col>
         </Row>
+        <h6 className="text-white text-center">Built With ❤ STRIVE | `D</h6>
       </Container>
     </div>
   );

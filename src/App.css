@@ -1,22 +1,33 @@
 body {
-  background-color: #000000;
+  background-color: #272643;
+}
+.title-text {
+  color: #f55951;
 }
 
 .grid {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 15px;
 }
 
 .box {
+  border: 1px dashed #543c52;
+  background-color: #e3f6f5;
   width: auto;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icons {
-  font-size: 25px;
-  color: #a42020;
+  font-size: 35px;
+  color: #2c698d;
+}
+
+.icons:hover {
+  color: #0a2f35;
+  transform: scale(1.1);
 }
